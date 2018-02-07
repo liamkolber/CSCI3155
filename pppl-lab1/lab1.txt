@@ -1,0 +1,11 @@
+# 2a
+- pi @ line 4 is bound at line 3 because the val pi creates the variable within that scope.
+- pi @ line 7 is bound at line 1 because the pi created in line 3 is in a difference scope
+
+# 2b
+- x @ line 3 is bound at line 2 in the parameters of the function because the contents of x are established within that scope
+- x @ line 6 is bound at line 5 because the case creates a new scope in which the data in x isn't transferred to line 6 unless it is first transferred to 5
+- x @ line 10 is bound at line 5 because it is within the same scope as above with the case at line 5
+- x @ line 13 is bound at line 1 because it is not within the scope of the defined function and is global, which gets bound at line 1
+
+# 

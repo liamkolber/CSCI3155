@@ -63,11 +63,7 @@ object Lab1 extends jsy.util.JsyApplication with jsy.lab1.Lab1Like {
 
   def repeat(s: String, n: Int): String = {
     require(n >= 0)
-    //if (n > 0) s + repeat(s,n-1) else ""
-    n match {
-      case 0 => ""
-      case _ => s + repeat(s,n-1)
-    }
+    if (n > 0) s + repeat(s,n-1) else ""
   }
 
   // straight up implementation of equation given
@@ -122,8 +118,8 @@ object Lab1 extends jsy.util.JsyApplication with jsy.lab1.Lab1Like {
   // If less, go left. If greater, go right. If equal, call deleteMin on the right side to replace node to delete
   def delete(t: SearchTree, n: Int): SearchTree = t match {
     case Empty => Empty
-    case Node(Empty,d,r) => if (n > d) Node(Empty,d,delete(r,n))  else if (n < d) Node(Empty,d,r)           else r // return right leaf to replace current node
-    case Node(l,d,Empty) => if (n > d) Node(l,d,Empty)            else if (n < d) Node(delete(l,n),d,Empty) else l // same as above but opposite direction
+    case Node(Empty,d,r) => if (n > d) Node(Empty,d,delete(r,n))  else if (n < d) Node(Empty,d,r)           else r
+    case Node(l,d,Empty) => if (n > d) Node(l,d,Empty)            else if (n < d) Node(delete(l,n),d,Empty) else l
     case Node(l,d,r) =>     if (n > d) Node(l,d,delete(r,n))      else if (n < d) Node(delete(l,n),d,r)     else {
         val (r1,m) = deleteMin(r)
         Node(l,m,r1)
@@ -134,7 +130,7 @@ object Lab1 extends jsy.util.JsyApplication with jsy.lab1.Lab1Like {
 
   def eval(e: Expr): Double = e match {
     case N(n) => n                                  // base case - want all further calculations to end up here
-    case Unary(Neg,e1) => -eval(e1)                   // case of a negative operation required
+    case Unary(Neg,e) => -eval(e)                   // case of a negative operation required
     case Binary(Plus,e1,e2) => eval(e1) + eval(e2)
     case Binary(Minus,e1,e2) => eval(e1) - eval(e2)
     case Binary(Times,e1,e2) => eval(e1) * eval(e2)
