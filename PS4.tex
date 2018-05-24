@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{\baselineskip}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\usepackage{amsmath,amsfonts,amssymb,graphicx}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\pagestyle{fancy}
+\title{CSCI 3753 Problem Set 4}
+
+\begin{document}
+
+\lhead{{\bf CSCI 3753 \\ Problem Set 4} }
+\rhead{{\bf YOUR NAME HERE \\Spring 2018, CU-Boulder}}
+
+\textbf{\textit{RECITATION: XXX}}\\
+\textbf{\textit{NUMBER OF HOURS TO COMPLETE PS: X}}
+
+
+\begin{enumerate}
+    %PROBLEM 1
+    \item{\textit{(5 pts) Explain why the SSTF scheduling policy tends to favor 				middle cylinders over the innermost and outermost cylinders.}}
+
+    %PROBLEM 2
+    \item{\textit{(5 pts) Why is rotational latency usually NOT considered in disk 				scheduling?}}
+
+
+    %PROBLEM 3
+    \item{\textit{(10 pts) What are the tradeoffs with rereading code pages from the file system versus using swap space to store them.}}
+
+
+    %PROBLEM 4
+    \item{\textit{(30 pts) Suppose that a disk drive has 5,000 cylinders, numbered 0 to 4,999. The drive is currently serving a request at cylinder 2,150, and the previous request was at cylinder 1,805. The queue of pending requests, in FIFO order, is: \\ \tab 2069, 1212, 2296, 2800, 544, 1618, 356, 1523, 4965, 3681 \\
+    Starting from the current head position, what is the total distance (in cylinders) that the disk arm moves to satisfy all the pending requests for each of the following disk-scheduling algorithms?
+    \begin{enumerate}
+    \item{\textit{FCFS}}
+     \item{\textit{SSTF}}
+     \item{\textit{SCAN}}
+     \item{\textit{LOOK}}
+     \item{\textit{C-SCAN}}
+     \item{\textit{C-LOOK}}
+     \end{enumerate}}}
+
+
+    %PROBLEM 5
+    \item{\textit{(10 pts) Contrast the performance of the three allocation methods (contiguous, linked, indexed) for both sequential and random file access.}}
+
+
+    %PROBLEM 6
+    \item{\textit{(5 pts) Consider a system where free disk space is kept in a free-space list. Suppose the pointer to the free-space list is lost. Can the system reconstruct the free-space list? Explain your answer.}}
+
+
+
+    %PROBLEM 7
+    \item{\textit{(5 pts) Consider a file system similar to the one used by UNIX (indexed allocation). How many disk operations are required to access the contents of a file at \textbf{/dir1/dir2/file3}?
+    Assume that none of the disk blocks is currently being cached.}}
+
+    %PROBLEM 8
+	    \item{\textit{(30 pts) You are asked to allocate a file according to either a File Allocation Table (FAT) or multi-level indexed allocation (UNIX inode - triply indirect). Assume that the file is 2000 disk blocks long, there are 4 KB per disk block, each pointer in the FAT occupies 4 bytes, the first index block contains 15 entries (of which 12 are direct, and one each is singly indirect, doubly indirect, and triply indirect - see slides or textbook), every other index block contains 15 entries (may be indirect depending on the nesting level), each index block entry takes 4 bytes, and unused index blocks don't count in the total memory cost, though unused entries in partially filled index blocks do count. How many bytes are used to lay out the file when using a
+        \begin{enumerate}
+        \item{\textit{FAT file system?}}
+     	\item{\textit{UNIX-style file system?}}
+        \end{enumerate}
+        Now suppose that you wish to read the 1099'th block of the file. Assume each of the following counts as one search operation:
+        \begin{enumerate}
+        \item[]{\textit{moving from one element to the next in a linked list}}
+     	\item[]{\textit{indexing into an index block}}
+        \item[]{\textit{moving from index block to the next}}
+        \end{enumerate}
+        How many searches are needed to read block 1099 when using the
+         \begin{enumerate}
+        \item[(c)]{\textit{same FAT file system as above?}}
+     	\item[(d)]{\textit{same UNIX-style file system as above?}}
+        \end{enumerate}
+        }}
+
+\end{enumerate}
+
+\end{document}
